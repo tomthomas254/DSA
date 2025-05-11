@@ -122,6 +122,33 @@ class LinkedList:
                 return current
 
 
+        def reverseList(self):
+            """
+            Takes O(n) time and O(1) space
+            """
+            prev = None 
+            current = self.head
+
+            while current:
+                next = current.next_node
+                current.next_node = prev
+                prev = current
+                current = next
+            self.head = prev
+            return self
+            
+
+        def reverseList_recursive(self):
+            prev = None
+            current = self.head
+
+            if current:
+                return prev
+            
+            next = current.next_node
+            current.next_node = prev
+            return reverseList_recursive()
+
         def __repr__(self):
             """
             Returns a string representation of the list.
